@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;0,800;1,300&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background: black;
+}
+
+header img {
+    width: 70px;
+    background: transparent;
+    transition: .9s;
+}
+
+header img:hover {
+    transform: rotate(360deg);
+}
+
+
+header {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    justify-content: space-around;
+    padding: 8px 0px;
+    align-items: center;
+    z-index: 1000;
+}
+
+.navBar a{
+    text-decoration: none;
+    position: relative;
+    color:  #3185bd;
+    font-size: 2vh;
+    align-items: center;
+    font-weight: bold;
+    display: inline-block;
+    margin: 0px 1em;
+    margin-top: 4px;
+    padding: 5px 13px;
+    background-color: #fda600;
+    box-shadow: 2px 4px 0px #b07300;
+    border-radius: 80px;
+    transition: .3s;
+
+}
+
+.navBar a:hover {
+    color: #45b5d5;
+    box-shadow: 0px 0px 0px #b07300;
+}
+
+
+/* CERCLE BODY */
+
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.back,
+.back .cercle,
+.back .cercle img,
+.dark {
+    position: absolute;
+    width: 100%; 
+    height: 100%;
+}
+ 
+.back{
+    display: flex;
+    justify-content: center;
+    align-items:  center;
+}
+
+.back .cercle {
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+}
+
+
+.back.active .cercle {
+    z-index: 10;
+}
+
+.back .cercle.large,
+.dark {
+    clip-path: circle(50% at 50% 50%);
+}
+ 
+.back .cercle.small {
+    clip-path: circle(30% at 50% 50%);
+    z-index: 12;
+}
+
+
+.back .cercle img {
+    object-fit: cover;
+    background-repeat: repeat;
+    opacity: 0;
+    transform: rotate(0deg) scale(4);
+    transition: transform 1s ease, opacity 1s ease;
+
+}
+
+.back.active .cercle img {
+    transform: rotate(360deg) scale(1);
+    opacity: 1;
+}
+
+.back.after-active .cercle img {
+    transform: rotate(720deg) scale(4);
+    opacity: 0;
+}
+
+.back.active .cercle.bg img,
+.back.after-active .cercle.bg img {
+    transition-delay: .6s; 
+}
+
+.back.active .cercle.cercle.large img,
+.back.after-active .cercle.large img {
+    transition-delay: .3s; 
+} 
+
+.back.active .cercle.cercle.small img,
+.back.after-active .cercle.small img {
+    transition-delay: .5s; 
+}
+
+.dark {
+    background: rgb(0, 0, 0, .4 );
+    z-index: 11; 
+} 
+
+.back .container-Text {
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+}
+
+.back.active .container-Text {
+    z-index: 101;
+}
+
+.container-Text .place {
+     overflow: hidden;
+}
+
+.container-Text h1 {
+    color: #f4f5f7;
+    text-shadow: 4px 2px 4px #000000 ;
+    letter-spacing: 50px;
+    font-size: 120px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition:  transform .5s ease;
+    transition-delay: 1s ;
+}
+
+.back.active .container-Text .place h1 {
+    transform: translateY(0%);
+    opacity: 1;
+}
+
+.back.after-active .container-Text .place h1 {
+    transform: translateY(-100%);
+    opacity: 1;
+}
+
+.rotate-btn {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 60px;
+    background-color: #3185bd;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+.rotate-btn.active {
+    transform: rotate(360deg);
+    pointer-events: none;
+    transition: transform .5s ease;
+    transition-delay: .3s;
+}
+
+.rotate-btn i {
+    font-size: 40px;
+    color: #fda600;
+}
+
+
